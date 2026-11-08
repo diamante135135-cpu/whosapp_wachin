@@ -9,14 +9,16 @@ import kotlinx.android.synthetic.main.recycler_chats_layout.view.*
 class ChatsViewHolder(
     private val view: View,
     private val recyclerViewItemClicked: RecyclerViewItemClicked
-) : RecyclerView.ViewHolder(view){
+) : RecyclerView.ViewHolder(view) {
 
-    fun setData(users: Users){
+    fun setData(users: Users) {
         view.apply {
-
-            tvUserName.text = users.profileName
+            tvUserName.text = users.profileName ?: "Contacto"
             llUsers.setOnClickListener {
-                recyclerViewItemClicked.onItemClicked(adapterPosition,users)
+                val pos = adapterPosition
+                if (pos != RecyclerView.NO_POSITION) {
+                    recyclerViewItemClicked.onItemClicked(pos, users)
+                }
             }
         }
     }

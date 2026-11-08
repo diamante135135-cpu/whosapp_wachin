@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarStorage"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#075E54"
+        android:title="Gestión de Almacenamiento"
+        android:titleTextColor="@android:color/white" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Uso de Almacenamiento"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#075E54"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvStorageUsage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Caché local: Calculando...\nBase de datos: Activa\nArchivos multimedia: 0 MB"
+                android:textSize="14sp"
+                android:textColor="#333333"
+                android:layout_marginBottom="24dp" />
+
+            <Button
+                android:id="@+id/btnClearCache"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Limpiar Caché y Archivos Temporales"
+                android:backgroundTint="#075E54"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/btnExportBackup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Generar Respaldo Cifrado"
+                android:backgroundTint="#128C7E"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -7,47 +7,45 @@
     android:background="@color/background"
     tools:context=".activities.HomeActivity">
 
-    <!--    <include-->
-    <!--        android:id="@+id/toolbar"-->
-    <!--        layout="@layout/toolbar"/>-->
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
-        android:orientation="vertical"
         android:theme="@style/ToolbarTheme"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="WhatsApp"
+        app:title="WAPP"
         app:titleTextAppearance="@style/Toolbar.TitleText"
-        app:titleTextColor="@android:color/white"
-        tools:layout_editor_absoluteX="85dp">
-
-
-
-
-
-    </androidx.appcompat.widget.Toolbar>
+        app:titleTextColor="@android:color/white" />
 
     <LinearLayout
-        app:layout_constraintTop_toTopOf="parent"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-app:layout_constraintEnd_toEndOf="@id/guideline"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/toolbar">
 
-        >
         <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/three_dot"
-            android:padding="15dp"
-            android:background="@android:color/transparent"/>
-<!--            android:src="@drawable/ic_more_vert_black"-->
+            android:id="@+id/btnSearchHome"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Buscar"
+            android:padding="12dp"
+            android:src="@android:drawable/ic_menu_search"
+            android:tint="@android:color/white" />
 
-            />
+        <ImageButton
+            android:id="@+id/three_dot"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Opciones"
+            android:padding="12dp"
+            android:src="@drawable/ic_more_vert_black"
+            android:tint="@android:color/white" />
     </LinearLayout>
 
     <com.google.android.material.tabs.TabLayout
@@ -59,44 +57,13 @@ app:layout_constraintEnd_toEndOf="@id/guideline"
         app:tabIconTint="@color/tab_inactive"
         app:tabIndicatorColor="@color/tab_active"
         app:tabSelectedTextColor="@color/tab_active"
-        app:tabTextColor="@color/tab_inactive">
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/ic_camera_alt_black_24dp" />
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/chat_tab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CHATS" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="STATUS" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CALLS" />
-
-    </com.google.android.material.tabs.TabLayout>
+        app:tabTextColor="@color/tab_inactive" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tabs" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

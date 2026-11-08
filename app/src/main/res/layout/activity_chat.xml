@@ -9,10 +9,7 @@
         android:id="@+id/toolbarChats"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/toolbar_background"
-
-        >
-
+        android:background="@color/toolbar_background">
 
         <ImageButton
             android:id="@+id/profile_backarrow"
@@ -22,58 +19,85 @@
             android:background="@android:color/transparent"
             android:src="@drawable/backarrow" />
 
-        <com.mikhaellopez.circularimageview.CircularImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/circle_image"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:src="@drawable/masaischhol" />
-
 
         <TextView
             android:id="@+id/toolBarName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:layout_marginLeft="75dp"
-            android:text="Any Name"
+            android:layout_marginLeft="15dp"
+            android:text="Contacto WAPP"
             android:textColor="@color/tab_active"
-            android:textSize="20dp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <ImageView
+            android:id="@+id/btnVideoCall"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginStart="80dp"
-            android:src="@drawable/video"
-            android:layout_marginLeft="80dp" />
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/video" />
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-      android:layout_marginStart="15dp"
-            android:src="@drawable/chat_call"
-            android:layout_marginLeft="15dp" />
-
-        <ImageView
+            android:id="@+id/btnVoiceCall"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginStart="15dp"
-            android:src="@drawable/ic_more_vert_black"
-            android:layout_marginLeft="15dp" />
+            android:layout_marginLeft="15dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/chat_call" />
+
+        <ImageView
+            android:id="@+id/btnChatMenu"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_more_vert_black" />
 
     </androidx.appcompat.widget.Toolbar>
 
+    <!-- Indicador visual del estado de conexión P2P / STUN / TURN / Servidor -->
+    <LinearLayout
+        android:id="@+id/llConnectionBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbarChats"
+        android:background="#128C7E"
+        android:padding="6dp">
+
+        <TextView
+            android:id="@+id/tvConnectionStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🌐 P2P: Solicitando conexión directa..."
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/llType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:id="@+id/llType"
         android:layout_margin="10dp"
         android:background="@drawable/type_message"
         android:orientation="horizontal">
 
         <ImageButton
+            android:id="@+id/btnEmoji"
             android:layout_width="21dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -86,16 +110,17 @@
 
         <EditText
             android:id="@+id/typeMsg"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginLeft="12dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:hint="Type a message"
-            android:padding="20dp" />
+            android:hint="Escribe un mensaje"
+            android:padding="16dp" />
 
         <ImageButton
+            android:id="@+id/btnAttachFile"
             android:layout_width="22dp"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
@@ -110,17 +135,14 @@
             android:background="@drawable/send_btn"
             android:src="@drawable/ic_send_black_24dp" />
 
-
     </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerChatCon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/llType"
-        android:layout_marginBottom="5dp"
-
-        android:layout_below="@id/toolbarChats" />
-
-
+        android:layout_below="@id/llConnectionBanner"
+        android:layout_marginBottom="5dp" />
 
 </RelativeLayout>
